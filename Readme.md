@@ -1,1 +1,1 @@
-App que usa Scrapping da Epic Games
+Tray app que usa Scrapping da Epic Games
