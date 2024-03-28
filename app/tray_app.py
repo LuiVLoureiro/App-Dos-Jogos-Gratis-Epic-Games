@@ -10,8 +10,7 @@ def mostrar_janela(icon, item):
         mostrar_janela.janela.configure(bg='#333333')
         mostrar_janela.janela.overrideredirect(True)
         canvas = tk.Canvas(mostrar_janela.janela, width=300, height=1)
-        
-
+    
         # Configura o tamanho da janela
         largura_janela = 250
         altura_janela = 400
@@ -25,10 +24,16 @@ def mostrar_janela(icon, item):
         mostrar_janela.janela.geometry(f'+{x_posicao - 50}+{y_posicao - 70}')
 
         label = tk.Label(mostrar_janela.janela, text="JOGOS GRATIS EPIC GAMES", bg='#333333', font='impact', fg='#ffffff', pady='30')
-        
         label.pack()
         canvas.create_line(1, 1, 1, 1, fill='white')
         canvas.pack()
+
+        from main import Scrapper
+        jogos_gratis = Scrapper.obter_nomes()
+
+        for i in range(len(jogos_gratis)):
+            label2 = tk.Label(mostrar_janela.janela, text=f"{jogos_gratis[i].upper()}", bg='#333333', font=('impact', 10), fg='#ffffff', pady='10')
+            label2.pack()
 
         # Define uma ação para quando a janela for fechada
         mostrar_janela.janela.protocol("WM_DELETE_WINDOW", fechar_janela)
