@@ -1,0 +1,1 @@
+App que usa Scrapping da Epic Games
