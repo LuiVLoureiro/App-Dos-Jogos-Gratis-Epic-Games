@@ -29,8 +29,11 @@ class Scrapper:
     
     def pesquisar_jogos():
         for i in range(len(jogos_gratis)):
+            # Fazer pesquisa no google
             url_pesquisa = requests.get(f'https://www.google.com/search?q={jogos_gratis[i]}+steam')
             soup_pesquisa = BeautifulSoup(url_pesquisa.text, 'html.parser')
+
+            # Achar todos os links e escolher apenas o primeiro
             links = soup_pesquisa.find_all('a', attrs={'data-ved': True})
             href = [link['href'] for link in links]
             href = href[0][7:]
