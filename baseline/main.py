@@ -27,7 +27,7 @@ class Scrapper:
         jogos_gratis = titulos[np.where(precos_desconto == 0)]
 
     
-    def pesquisar_jogos():
+    def pesquisar_estatisticas_jogos():
         for i in range(len(jogos_gratis)):
             # Fazer pesquisa no google
             url_pesquisa = requests.get(f'https://www.google.com/search?q={jogos_gratis[i]}+steam')
@@ -36,9 +36,21 @@ class Scrapper:
             # Achar todos os links e escolher apenas o primeiro
             links = soup_pesquisa.find_all('a', attrs={'data-ved': True})
             href = [link['href'] for link in links]
+            #print(href)
             href = href[0][7:]
 
-            print(href)
+            # Scrapping do site achado no google
+            url_jogo = requests.get(str(href))
+            soup_jogo = BeautifulSoup(url_jogo.text, 'html.parser')
+
+            # Encontrar elemento para porcentagem estatística de aprovação
+            status = soup_jogo.find_all('span', class_='responsive_reviewdesc_short')
+
+            # Manipulação e Fatiamente de strings para extrair apenas o número
+            porcentagem_positiva = status[0].text.replace('(', '').split()
+            porcentagem_positiva = (int(porcentagem_positiva[0].replace('%', '')))
+
+
 
 Scrapper.obter_nomes()
-Scrapper.pesquisar_jogos()
+Scrapper.pesquisar_estatisticas_jogos()
