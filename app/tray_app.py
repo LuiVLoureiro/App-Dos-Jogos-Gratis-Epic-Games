@@ -6,7 +6,7 @@ import tkinter as tk
 def mostrar_janela(icon, item):
     if not mostrar_janela.janela:
         mostrar_janela.janela = tk.Tk()
-        mostrar_janela.janela.title("Janela Tkinter")
+        mostrar_janela.janela.title("Dev Lui")
         mostrar_janela.janela.configure(bg='#333333')
 
         # Configura o tamanho da janela
@@ -21,7 +21,7 @@ def mostrar_janela(icon, item):
         y_posicao = altura_tela - altura_janela
         mostrar_janela.janela.geometry(f'+{x_posicao - 50}+{y_posicao - 100}')
 
-        label = tk.Label(mostrar_janela.janela, text="HOJE É RADIANITA")
+        label = tk.Label(mostrar_janela.janela, text="JOGOS GRATIS EPIC GAMES", bg='#333333', font='impact', fg='#ffffff', pady='30')
         label.pack()
 
         # Define uma ação para quando a janela for fechada
