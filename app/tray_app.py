@@ -8,6 +8,7 @@ def mostrar_janela(icon, item):
         mostrar_janela.janela = tk.Tk()
         mostrar_janela.janela.title("Dev Lui")
         mostrar_janela.janela.configure(bg='#333333')
+        mostrar_janela.janela.overrideredirect(True)
 
         # Configura o tamanho da janela
         largura_janela = 250
@@ -19,7 +20,7 @@ def mostrar_janela(icon, item):
         altura_tela = mostrar_janela.janela.winfo_screenheight()
         x_posicao = largura_tela - largura_janela
         y_posicao = altura_tela - altura_janela
-        mostrar_janela.janela.geometry(f'+{x_posicao - 50}+{y_posicao - 100}')
+        mostrar_janela.janela.geometry(f'+{x_posicao - 50}+{y_posicao - 70}')
 
         label = tk.Label(mostrar_janela.janela, text="JOGOS GRATIS EPIC GAMES", bg='#333333', font='impact', fg='#ffffff', pady='30')
         label.pack()
@@ -51,6 +52,7 @@ image = Image.open(r'C:\Users\luipo\Desktop\Projeto_Jogos_Gratis_Epic_Games\app\
 # Cria o ícone da bandeja com um menu
 icone = icon('test', image, menu=menu(
     item('Abrir Janela', mostrar_janela),
+    item('Fechar Janela', fechar_janela),
     item('Sair', sair)
 ))
 
