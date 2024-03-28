@@ -39,7 +39,7 @@ class Scrapper:
             # Achar todos os links e escolher apenas o primeiro
             links = soup_pesquisa.find_all('a', attrs={'data-ved': True})
             href = [link['href'] for link in links]
-            href = href[1][7:]
+            href = href[3][7:]
 
             # Scrapping do site achado no google
             url_jogo = requests.get(str(href))
