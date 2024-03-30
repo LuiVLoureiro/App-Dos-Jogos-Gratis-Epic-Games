@@ -6,7 +6,7 @@ import tkinter as tk
 def mostrar_janela(icon, item):
     if not mostrar_janela.janela:
         mostrar_janela.janela = tk.Tk()
-        mostrar_janela.janela.title("Dev Lui")
+        mostrar_janela.janela.title("Dev")
         mostrar_janela.janela.configure(bg='#333333')
         mostrar_janela.janela.overrideredirect(True)
         canvas = tk.Canvas(mostrar_janela.janela, width=300, height=1)
